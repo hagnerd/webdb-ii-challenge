@@ -44,4 +44,12 @@ router.get("/", async (_req, res) => {
   }
 });
 
+router.get("/:id", validateId, (req, res) => {
+  const { car } = req;
+
+  res.json({
+    car
+  });
+});
+
 module.exports = router;

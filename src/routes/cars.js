@@ -1,5 +1,5 @@
 const express = require("express");
-const db = require("../../db");
+const db = require("../db");
 
 const router = express.Router();
 
@@ -44,10 +44,10 @@ function validateInput(req, res, next) {
 
 router.get("/", async (_req, res) => {
   try {
-    const accounts = await db.select("*").from("cars");
+    const cars = await db.select("*").from("cars");
 
     res.json({
-      accounts
+      cars
     });
   } catch (error) {
     res.status(500).json({
